@@ -1169,4 +1169,11 @@ body.modal-open > .nav { visibility:hidden; pointer-events:none; }
 @media(max-width:850px) {
   .sandwich-section .sandwich-builder { margin:-12px auto 18px; }
   .builder-progress { bottom:-10px; }
+  .pill > span,
+  .builder-hint > span,
+  .layer-menu > a > i,
+  .decorative-arrow,
+  .smarteat-box > span > i,
+  .propro-box > span > i,
+  .cta > span { display:none; }
 }
