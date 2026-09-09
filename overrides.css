@@ -1139,6 +1139,20 @@ body.modal-open .signature-grid::after {
 .coffee-credit { display:flex; justify-content:space-between; gap:16px; margin:20px 0 0; font-size:11px; font-weight:900; letter-spacing:.1em; }
 @media(max-width:500px) { .coffee-contacts { gap:8px 16px; } .coffee-contacts a:last-child { flex-basis:100%; } .coffee-credit { font-size:9px; } }
 body.modal-open > .nav { visibility:hidden; pointer-events:none; }
+
+/* Solid navigation panel: prevent the page artwork from blending through it. */
+.nav:has(.menu.open) { mix-blend-mode:normal; }
+.nav:has(.menu.open) .brand,
+.nav:has(.menu.open) .menu-button { color:#fff; }
+.menu {
+  background:#090909;
+  color:var(--pink);
+  border:1px solid var(--pink);
+  box-shadow:8px 8px 0 rgba(255,155,199,.38);
+}
+.menu a { border-bottom-color:rgba(255,155,199,.28); }
+.menu a:hover,
+.menu a:focus-visible { background:var(--pink); color:#090909; }
 @media(max-width:850px) {
   .sandwich-section .section-intro h2 { font-size:clamp(32px,9vw,70px); width:130%; max-width:none; }
   .extra h2 { font-size:clamp(58px,19vw,130px); }
