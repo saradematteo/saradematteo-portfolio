@@ -102,7 +102,6 @@ document.addEventListener('keydown', (event) => {
 
 const workspaceGallery = document.querySelector('.propro-gallery');
 const workspaceSlides = [...workspaceGallery.querySelectorAll('.workspace-slide')];
-const workspacePause = workspaceGallery.querySelector('[data-workspace="pause"]');
 const workspaceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 let workspaceIndex = 0;
 let workspacePaused = workspaceMotion.matches;
@@ -122,13 +121,10 @@ function scheduleWorkspace() {
   if (!workspacePaused && workspaceVisible && !document.hidden && !proproModal.hidden) {
     workspaceTimer = setInterval(() => showWorkspace(workspaceIndex + 1), 5500);
   }
-  workspacePause.textContent = workspacePaused ? '▷' : 'Ⅱ';
-  workspacePause.setAttribute('aria-label', workspacePaused ? 'Play slideshow' : 'Pause slideshow');
 }
 workspaceGallery.querySelectorAll('[data-workspace]').forEach((button) => {
   button.addEventListener('click', () => {
-    if (button.dataset.workspace === 'pause') workspacePaused = !workspacePaused;
-    else showWorkspace(workspaceIndex + (button.dataset.workspace === 'next' ? 1 : -1));
+    showWorkspace(workspaceIndex + (button.dataset.workspace === 'next' ? 1 : -1));
     scheduleWorkspace();
   });
 });
