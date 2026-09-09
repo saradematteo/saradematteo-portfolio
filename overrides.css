@@ -1154,3 +1154,19 @@ body.modal-open > .nav { visibility:hidden; pointer-events:none; }
   .fillings-heading { min-width:0; grid-template-columns:minmax(0,1fr); }
   .fillings-heading > p { min-width:0; max-width:100%; }
 }
+
+/* Final loading and transition refinements */
+.logo-stage::before { z-index:0; animation:evolutionLineClear 7s ease-in-out infinite; }
+.logo-stage img { z-index:2; image-rendering:auto; }
+.logo-new { width:min(92%,520px); }
+.evolution-flow { z-index:1; }
+@keyframes evolutionLineClear {
+  0%,25% { opacity:1; transform:scaleX(0); transform-origin:left; }
+  46% { opacity:1; transform:scaleX(1); transform-origin:left; }
+  54%,88% { opacity:0; transform:scaleX(1); transform-origin:left; }
+  100% { opacity:0; transform:scaleX(0); transform-origin:right; }
+}
+@media(max-width:850px) {
+  .sandwich-section .sandwich-builder { margin:-12px auto 18px; }
+  .builder-progress { bottom:-10px; }
+}
